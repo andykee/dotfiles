@@ -1,50 +1,41 @@
-" Enable syntax highlighting
-syntax on
+" COLORS
+colorscheme monokai 	" monokai colorscheme
+syntax enable 		" enable syntax processing
 
-" Use the monokai color scheme
-colorscheme monokai
+" SPACES AND TABS
+set tabstop=4 		" 4 visual spaces per tab
+set softtabstop=4	" 4 spaces per tab when editing
+set expandtab		" convert tabs to spaces
+set shiftwidth=4	" 4 spaces per indentation level
+filetype indent on	" load filetype-specific indent files
+"set autoindent		" copy indentation level from previous line
 
-" Make Vim more useful
-set nocompatible
+" UI CONFIG
+set number 		" show line numbers
+set cursorline		" highlight current line
+set showmatch 		" highlight matching [{()}]
+set wildmenu		" visual autocomplete for command menu
+set shortmess=atI 	" don't show the intro message when starting vim
+set scrolloff=3		" always keep at least 3 lines visible when scrolling to eof
+set title		" show the filename in the window titlebar
 
-" Use the OS clipboard by default
-set clipboard=unnamed
+" SEARCH
+set incsearch		" search as characters are entered
+set hlsearch		" highlight matches
+" use ,<space> to unhighlight old search results
+noremap <leader><space> :nohlsearch<CR>
 
-" Allow cursor keys in insert mode
-set esckeys 
+" LEADER SHORTCUT
+let mapleader=","	" use comma for custom command leader
 
-" Enable line numbering
-set number
+" NAVIGATION
+set mouse=a 		" enable mouse in all modes
+set backspace=indent,eol,start	" allow backspaces in insert mode
 
-" Highlight current line
-set cursorline
+" SOUNDS
+set noerrorbells	" disable error bells	
 
-" Enable mouse for all modes
-set mouse=a
-
-" Disable error bells
-set noerrorbells
-
-" Don't show the introm message when starting Vim
-set shortmess=atI
-
-" Show the (partial) command as its being typed
-"set showcmd
-
-" Show the filename in the window titlebar
-set title
-
-" Always keep at least 3 lines visible when scrolling up
-set scrolloff=3
-
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-
-" Turn on audoindentation
-set autoindent
-filetype indent on
-
-" Status line
+" STATUS LINE
 set laststatus=2
 set statusline=
 set statusline+=[%f]	" file path
