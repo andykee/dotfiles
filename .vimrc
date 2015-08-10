@@ -1,6 +1,8 @@
+" Enable syntax highlighting
+syntax on
+
 " Use the monokai color scheme
 colorscheme monokai
-set bg=dark
 
 " Make Vim more useful
 set nocompatible
@@ -10,9 +12,6 @@ set clipboard=unnamed
 
 " Allow cursor keys in insert mode
 set esckeys 
-
-" Enable syntax highlighting
-syntax on
 
 " Enable line numbering
 set number
