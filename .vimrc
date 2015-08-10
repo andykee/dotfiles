@@ -1,5 +1,6 @@
 " Use the monokai color scheme
 colorscheme monokai
+set bg=dark
 
 " Make Vim more useful
 set nocompatible
@@ -39,6 +40,10 @@ set scrolloff=3
 
 " Allow backspace in insert mode
 set backspace=indent,eol,start
+
+" Turn on audoindentation
+set autoindent
+filetype indent on
 
 " Status line
 set laststatus=2
