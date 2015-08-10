@@ -1,0 +1,19 @@
+# Make sure Homebrew packages take precedence over system packages
+export PATH=/usr/local/bin:$PATH
+
+# Alias Python and pip
+alias python="python3"
+alias pip="pip3"
+
+# Configure pip
+export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
+gpip(){
+	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+} # gpip is a new command which will install things globally
+
+# Configure virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Dev
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALRNVWRAPPER_ENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh

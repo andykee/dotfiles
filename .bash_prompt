@@ -1,0 +1,5 @@
+# Set the terminal title to the current working directory.
+PS1="\[\033]0;\w\007\]";
+
+PS1+="[\u@\h \w]\$ ";         
+export PS1
