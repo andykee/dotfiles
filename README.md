@@ -3,13 +3,13 @@
 To install/update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
-source bootstrap.sh
+source dotfiles.sh
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
 
 ```bash
-set -- -f; source bootstrap.sh
+set -- -f; source dotfiles.sh
 ```
 
 ### Add custom commands without creating a new fork
