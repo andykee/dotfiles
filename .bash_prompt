@@ -39,7 +39,7 @@ prompt_git() {
 		# Otherwise, just give up.
 		branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
 			git rev-parse --short HEAD 2> /dev/null || \
-			echo '(unknown)')";
+			echo 'unknown')";
 
 		[ -n "${s}" ] && s=" [${s}]";
 
