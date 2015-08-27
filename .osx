@@ -15,7 +15,7 @@ gpip(){
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Dev
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALRNVWRAPPER_ENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_ENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_WORKON_CD=1
 source /usr/local/bin/virtualenvwrapper.sh
 
