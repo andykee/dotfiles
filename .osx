@@ -20,4 +20,4 @@ export VIRTUALENVWRAPPER_WORKON_CD=1
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Install Sublime Text Settings
-cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null

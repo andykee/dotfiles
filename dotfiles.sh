@@ -4,7 +4,8 @@ cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "dotfiles.sh" \
-		--exclude "README.md" --exclude "monokai.terminal" -avh --no-perms . ~;
+		--exclude "README.md" --exclude "monokai.terminal" \
+        --exclude "Preferences.sublime-settings" -avh --no-perms . ~;
 	source ~/.bash_profile;
 }
 
