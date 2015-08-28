@@ -1,0 +1,11 @@
+# Uncomment for personal MBP -------------------------------------------------
+
+# Uncomment for JPL MBP ------------------------------------------------------
+
+# Uncomment for S383 network machines ----------------------------------------
+export MACOS_HOME=~/pymacos/source/macos_f90
+export LANG=en_US
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/gcc-4.8.2/lib64
+
+
+
