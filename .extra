@@ -1,11 +1,25 @@
-# Uncomment for personal MBP -------------------------------------------------
+# Uncomment the commands for the appropriate machine. Be careful when pushing/pulling - this may overwrite your localized .extra file and cause wonky behavior
 
-# Uncomment for JPL MBP ------------------------------------------------------
+# ----------------------------------------------------------------------------
+# Personal MBP
+# ----------------------------------------------------------------------------
 
-# Uncomment for S383 network machines ----------------------------------------
+# ----------------------------------------------------------------------------
+# JPL MBP
+# ----------------------------------------------------------------------------
+# pymacos
 export MACOS_HOME=~/pymacos/source/macos_f90
 export LANG=en_US
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/gcc-4.8.2/lib64
 
 
+
+# ----------------------------------------------------------------------------
+# S383 machines
+# ----------------------------------------------------------------------------
+
+# pymacos
+#export MACOS_HOME=~/pymacos/source/macos_f90
+#export LANG=en_US
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/gcc-4.8.2/lib64
 
