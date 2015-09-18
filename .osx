@@ -23,5 +23,3 @@ CMD='proj_name=$(basename $VIRTUAL_ENV); cd $PROJECT_HOME/$proj_name'
 FILE=$WORKON_HOME/postactivate
 grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
 
-# Install Sublime Text Settings
-cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
