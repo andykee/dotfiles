@@ -57,6 +57,15 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "America/Los_Angeles" > /dev/null
 
+# Menu bar: Show remaining battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+# Sounds 
+# ----------------------------------------------------------------------------
+
+# Play iOS-like sound when plugging laptop in to power
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app 2>/dev/null &
+
 
 # Trackpad, mouse, keyboard, and input
 # ----------------------------------------------------------------------------
@@ -93,7 +102,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
 # Show all filename extensions in Finder by default
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+#defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -113,8 +122,11 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Disable warning when changing file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Use column view in all Finder windows by default
-#defaults write com.apple.finder FXPreferredViewStyle Clmv
+# Use list view in all Finder windows by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Use icon view in all Finder windows by defauly
+#defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 
 # Avoid creation of .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -195,6 +207,9 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 
 # Add contxt menu item in Safari for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Delete key navigates back a page
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
 
 # Time Machine
