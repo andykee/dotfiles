@@ -3,6 +3,7 @@ export PATH=/usr/local/bin:$PATH
 
 # Alias Python and pip
 alias python="python3"
+alias python2="/usr/bin/python2.7"
 alias pip="pip3"
 
 # Configure pip
