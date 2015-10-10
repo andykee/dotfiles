@@ -26,7 +26,7 @@ set hlsearch		" highlight matches
 noremap <leader><space> :nohlsearch<CR>
 
 " LEADER SHORTCUT
-let mapleader=","	" use comma for custom command leader
+let mapleader="\<Space>"	" use space for custom command leader
 
 " NAVIGATION
 set mouse=a 		" enable mouse in all modes
@@ -46,3 +46,6 @@ set statusline+=%=	" left/right separator
 set statusline+=%c
 set statusline+=\ %l/%L
 set statusline+=\ %P
+
+" ENCODING
+set encoding=utf-8
