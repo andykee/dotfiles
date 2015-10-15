@@ -49,3 +49,11 @@ set statusline+=\ %P
 
 " ENCODING
 set encoding=utf-8
+
+" SPLIT CONFIG
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
+noremap <C-H><C-W><C-H>
+set splitbelow
+set splitright
