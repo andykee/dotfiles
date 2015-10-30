@@ -45,9 +45,6 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # Automatically quit the printer app once a print job is complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable system-wide resume
-defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
-
 # Save to disk (instead of iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
@@ -60,7 +57,20 @@ sudo systemsetup -settimezone "America/Los_Angeles" > /dev/null
 # Menu bar: Show remaining battery percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# Sounds 
+# Toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t
+sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
+
+# Power and Performance
+# -----------------------------------------------------------------------------
+
+# Disable system-wide resume
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+# Disable sudden motion sensor (it's not useful for SSDs)
+sudo pmset -a sms 0
+
+
+# Sounds
 # ----------------------------------------------------------------------------
 
 # Play iOS-like sound when plugging laptop in to power
@@ -101,6 +111,12 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
+# Show hidden files in Finder by default
+#defaults write com.apple.Finder AppleShowAllFiles -bool true
+
+# Show dotfiles in Finder by default
+defaults write com.apple.finder AppleShowAllFiles false
+
 # Show all filename extensions in Finder by default
 #defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -122,12 +138,6 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Disable warning when changing file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Use list view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Use icon view in all Finder windows by defauly
-#defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
-
 # Avoid creation of .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
@@ -141,10 +151,28 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
-# Increase the size of icons on the desktop and in other icon views
+# Set the size of icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
+
+# Set grid spacing for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 80" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 80" ~/Library/Preferences/com.apple.finder.plist
+  /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 80" ~/Library/Preferences/com.apple.finder.plist
+
+# Use list view in all Finder windows by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Use icon view in all Finder windows by defauly
+#defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
+
+# Set item arrangement to none
+defaults write com.apple.finder FXPreferredGroupBy -string "None"
+
+# Sort finder items by name
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" ~/Library/Preferences/com.apple.finder.plist
+
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -222,7 +250,7 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 
-# Sublime Text 
+# Sublime Text
 # ----------------------------------------------------------------------------
 
 # Install Sublime Text settings
