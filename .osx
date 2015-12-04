@@ -1,3 +1,6 @@
+# OSX-specific aliases
+alias im="open -a Preview"
+
 # Make sure Homebrew packages take precedence over system packages
 export PATH=/usr/local/bin:$PATH
 
@@ -5,6 +8,7 @@ export PATH=/usr/local/bin:$PATH
 alias python="python3"
 alias python2="/usr/bin/python2.7"
 alias pip="pip3"
+alias jpy="jupyter notebook"
 
 # Configure pip
 export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs

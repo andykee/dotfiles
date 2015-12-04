@@ -23,7 +23,8 @@ set title		" show the filename in the window titlebar
 set incsearch		" search as characters are entered
 set hlsearch		" highlight matches
 " use ,<space> to unhighlight old search results
-noremap <leader><space> :nohlsearch<CR>
+"noremap <leader><space> :nohlsearch<CR>
+noremap <esc> :noh<return><esc>
 
 " LEADER SHORTCUT
 let mapleader="\<Space>"	" use space for custom command leader
