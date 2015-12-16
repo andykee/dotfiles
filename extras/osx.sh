@@ -10,7 +10,8 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# General UI/UX
+
+    # General UI/UX
 # ----------------------------------------------------------------------------
 
 # Menu bar: hide the Time Machine, Volume, and User icons
@@ -59,6 +60,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t
 sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
+
 
 # Power and Performance
 # -----------------------------------------------------------------------------
@@ -191,6 +193,14 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
+
+# Terminal
+# ----------------------------------------------------------------------------
+
+# Disable Terminal marks
+defaults write com.apple.Terminal AutoMarkPromptLines -int 0
+
+
 # Dock, Mission Control, and Dashboard
 # ----------------------------------------------------------------------------
 
@@ -215,6 +225,7 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
+
 
 # Safari and WebKit
 # ----------------------------------------------------------------------------
@@ -255,6 +266,7 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Install Sublime Text settings
 cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
+
 
 # Kill all affected apps
 # ----------------------------------------------------------------------------

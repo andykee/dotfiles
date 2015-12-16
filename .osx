@@ -4,12 +4,6 @@ alias im="open -a Preview"
 # Make sure Homebrew packages take precedence over system packages
 export PATH=/usr/local/bin:$PATH
 
-# Alias Python and pip
-alias python="python3"
-alias python2="/usr/bin/python2.7"
-alias pip="pip3"
-alias jpy="jupyter notebook"
-
 # Configure pip
 export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
 gpip(){
@@ -19,8 +13,6 @@ gpip(){
 # Configure virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Dev
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_ENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Virtualenv workon cd into project directory
