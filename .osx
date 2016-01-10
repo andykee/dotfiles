@@ -20,3 +20,5 @@ CMD='proj_name=$(basename $VIRTUAL_ENV); cd $PROJECT_HOME/$proj_name'
 FILE=$WORKON_HOME/postactivate
 grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
 
+# mkvirtualenv3 makes python3 virtualenv
+alias mkvirtualenv3="mkvirtualenv -p python3"
