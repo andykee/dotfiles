@@ -261,12 +261,6 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 
-# Sublime Text
-# ----------------------------------------------------------------------------
-
-# Install Sublime Text settings
-cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
-
 
 # Kill all affected apps
 # ----------------------------------------------------------------------------
