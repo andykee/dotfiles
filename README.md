@@ -46,7 +46,3 @@ OSX Yosemite added support for 256 colors and the ability to import/export termi
 ### Fonts
 I use [Adobe Source Code Pro](https://github.com/adobe-fonts/source-code-pro), which is included here. Version 2.010 added support for powerline fonts (used by vim-airline), which was very nice of them to do.
 
-### Install custom Terminal profile on OSX
-
-Open Terminal preferences and import ```monokai.terminal``` from the dotfiles directory. Set it as default.
-
