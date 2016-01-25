@@ -24,3 +24,6 @@ grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
 
 # mkvirtualenv3 makes python3 virtualenv
 alias mkvirtualenv3="mkvirtualenv -p python3"
+
+# set up gruvbox colors
+source "$HOME/.vim/gruvbox_256palette.sh"

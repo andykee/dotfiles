@@ -1,3 +1,6 @@
+" PATHOGEN
+execute pathogen#infect()
+
 " COLORS
 colorscheme monokai	" monokai colorscheme
 syntax enable		" enable syntax highlighting
@@ -55,4 +58,3 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-R> <C-W><C-R>
 set splitbelow
 set splitright
-
