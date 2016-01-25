@@ -1,5 +1,7 @@
-## Installation
+# dotfiles
+A collection of dotfiles tailored to meet my needs. Based on [dotfiles](https://github.com/mathiasbynens/dotfiles) by mathiasbynens.
 
+## Installation
 To install/update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
@@ -12,12 +14,29 @@ Alternatively, to update while avoiding the confirmation prompt:
 set -- -f; source dotfiles.sh
 ```
 
+### Features
+
+
+## Extras
+
+
+### `osx.sh`
+
+
+### `brew.sh`
+
+
+### Colors
+
+
+### Fonts
+
+
+
 ### Install custom Terminal profile on OSX
 
 Open Terminal preferences and import ```monokai.terminal``` from the dotfiles directory. Set it as default.
 
-### Sublime Text Extras
-Install [Package Control](https://packagecontrol.io) and [Theme-Soda](https://packagecontrol.io/packages/Theme%20-%20Soda)
 
 
 ### Add custom commands without creating a new fork
