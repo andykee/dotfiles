@@ -4,7 +4,7 @@ execute pathogen#infect()
 " COLORS
 syntax enable		" enable syntax highlighting
 set t_Co=256        " use 256 colors
-colorscheme monokai	" monokai colorscheme
+colorscheme solarized	" monokai colorscheme
 set background=dark
 
 " SPACES AND TABS
