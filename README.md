@@ -36,7 +36,7 @@ Sets a number of nice to have OSX defaults. Only needs to be run when setting up
 ### `brew.sh`
 Installs a number of [Homebrew](http://brew.sh) formulae that I use. Note that some of the configurations made by `dotfiles` rely on having these packages installed. Again, only needs to be run when setting up a new machine:
 
-``bash
+```bash
 ./brew.sh
 ```
 
