@@ -32,4 +32,5 @@ gruvbox
 
 
 ### `vim` plugins
-* vim-airline 
+* vim-airline - NOTE requires source code pro 2.010 or later for powerline font support
+ 
