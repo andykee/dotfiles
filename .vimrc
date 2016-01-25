@@ -2,8 +2,10 @@
 execute pathogen#infect()
 
 " COLORS
-colorscheme monokai	" monokai colorscheme
 syntax enable		" enable syntax highlighting
+set t_Co=256        " use 256 colors
+colorscheme monokai	" monokai colorscheme
+set background=dark
 
 " SPACES AND TABS
 set tabstop=4		" 4 visual spaces per tab
@@ -58,3 +60,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-R> <C-W><C-R>
 set splitbelow
 set splitright
+
+" AIRLINE
+let g:airline_powerline_fonts=1
+let g:bufferline_echo=0
+set timeoutlen=50
+set laststatus=2
+set noshowmode          " hide bottom status line

@@ -22,4 +22,14 @@ Install [Package Control](https://packagecontrol.io) and [Theme-Soda](https://pa
 
 ### Add custom commands without creating a new fork
 
-If `~/.extra` exists, it will be sourced along with the other files. 
+If `~/.extra` exists, it will be sourced along with the other files.
+
+### Colors
+solarized (lion terminal config in extras)
+molokai - https://github.com/tomasr/molokai
+gruvbox
+(can I make these all pathogen plugins?)
+
+
+### `vim` plugins
+* vim-airline 
