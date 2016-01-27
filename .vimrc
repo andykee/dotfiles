@@ -58,7 +58,7 @@ nnoremap <C-H> <C-W><C-H> " move to left split
 nnoremap <C-R> <C-W><C-R> " l/r split swap
 nnoremap <C-K> :bn<CR>    " next buffer
 nnoremap <C-J> :bp<CR>    " previous buffer
-nnoremap <C-W> :bd<CR>    " close current buffer
+nnoremap <C-W> :b#<bar>bd#<CR>    " close current buffer
 
 " BUFFER CONFIG
 set hidden              " allow buffers to be hidden with unsaved changes
