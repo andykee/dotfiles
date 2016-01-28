@@ -25,6 +25,7 @@ set showmatch       " highlight matching during search
 set shortmess=atI   " disable vi startup message
 set scrolloff=3     " always keep at least 3 lines visible when scrolling to eof
 set title           " show filename in window titlebar
+set wildmenu        " show tab completion options
 
 " SEARCH
 set incsearch       " search as characters are entered
