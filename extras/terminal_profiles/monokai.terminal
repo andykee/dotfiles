@@ -134,6 +134,10 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>BellBadge</key>
+	<false/>
+	<key>BellBounce</key>
+	<false/>
 	<key>CursorBlink</key>
 	<false/>
 	<key>CursorColor</key>
@@ -172,11 +176,19 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>ShouldRestoreContent</key>
+	<false/>
+	<key>ShowActiveProcessInTabTitle</key>
+	<false/>
 	<key>ShowActiveProcessInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
+	<false/>
+	<key>ShowRepresentedURLInTabTitle</key>
+	<false/>
+	<key>ShowRepresentedURLInTitle</key>
 	<false/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
@@ -200,8 +212,12 @@
 	EA9OU0tleWVkQXJjaGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSFBdZGdpa3B7hIyPmKqt
 	sgAAAAAAAAEBAAAAAAAAABkAAAAAAAAAAAAAAAAAAAC0
 	</data>
+	<key>UseBrightBold</key>
+	<false/>
 	<key>WindowTitle</key>
 	<string></string>
+	<key>columnCount</key>
+	<integer>120</integer>
 	<key>name</key>
 	<string>monokai</string>
 	<key>noWarnProcesses</key>
@@ -231,6 +247,8 @@
 			<string>tmux</string>
 		</dict>
 	</array>
+	<key>rowCount</key>
+	<integer>35</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 </dict>
