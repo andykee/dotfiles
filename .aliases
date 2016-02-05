@@ -10,6 +10,8 @@ alias dev="cd ~/Dev"
 alias dl="cd ~/Downloads"
 alias w="cd ~/Work"
 
+alias c="clear"
+
 # Detect which 'ls' flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU 'ls'
 	colorflag="--color"

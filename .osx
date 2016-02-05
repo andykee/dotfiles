@@ -1,9 +1,10 @@
+# OSX-specific aliases
+alias im="open -a Preview"
+alias vi="/usr/local/bin/vim"
+alias vim="/usr/local/bin/vim"
+
 # Make sure Homebrew packages take precedence over system packages
 export PATH=/usr/local/bin:$PATH
-
-# Alias Python and pip
-alias python="python3"
-alias pip="pip3"
 
 # Configure pip
 export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
@@ -14,8 +15,6 @@ gpip(){
 # Configure virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Dev
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_ENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Virtualenv workon cd into project directory
@@ -23,5 +22,5 @@ CMD='proj_name=$(basename $VIRTUAL_ENV); cd $PROJECT_HOME/$proj_name'
 FILE=$WORKON_HOME/postactivate
 grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
 
-# Install Sublime Text Settings
-cp -r Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User 2> /dev/null
+# mkvirtualenv3 makes python3 virtualenv
+alias mkvirtualenv3="mkvirtualenv -p python3"

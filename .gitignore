@@ -2,6 +2,12 @@
 *.pyc
 __pycache__/
 
+# MATLAB Autosave files
+*.m~
+
+# Compiled MEX binaries
+*.mex*
+
 # Folder view configuration files
 .DS_Store
 Desktop.ini
@@ -9,3 +15,6 @@ Desktop.ini
 # Thumbnail cache files
 ._*
 Thumbs.db
+
+# dotfiles .extra file (we won't version control it since it's machine-specific)
+*.extra
