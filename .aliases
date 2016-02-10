@@ -6,9 +6,9 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # Shortcuts
-alias dev="cd ~/Dev"
-alias dl="cd ~/Downloads"
-alias w="cd ~/Work"
+alias dev="cd ~/dev"
+alias dl="cd ~/downloads"
+alias w="cd ~/work"
 
 alias c="clear"
 

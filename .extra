@@ -16,7 +16,7 @@ case $HOSTNAME in
     ;;
 
     hooligan* )
-        alias matlab="/usr/local/bin/matlab"
+        alias matlab="/usr/local/matlab/bin/matlab -nodesktop -nosplash"
     ;;
 
 
