@@ -18,7 +18,7 @@ set -- -f; source dotfiles.sh
 * Commonly used aliases
 * A compact bash prompt including inline git branch and status information
 * Operating system-specific configurations for both OSX and \*nix
-* Machine-specific configrations are captured in `.extra` (optional)
+* Hostname-specific configrations are captured in `.extra` (optional)
 * Git configuration including some basic shortcuts
 * A sensible `vim` configuration with [pathogen](https://github.com/tpope/vim-pathogen) and [airline](https://github.com/vim-airline/vim-airline)
 * [Solarized](http://ethanschoonover.com/solarized), [monokai](https://github.com/sickill/vim-monokai), and [gruvbox](https://github.com/morhetz/gruvbox) colorstyles for `vim`.

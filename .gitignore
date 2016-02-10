@@ -16,5 +16,3 @@ Desktop.ini
 ._*
 Thumbs.db
 
-# dotfiles .extra file (we won't version control it since it's machine-specific)
-*.extra
