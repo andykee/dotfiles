@@ -9,7 +9,11 @@
     editor = vim
 
 [alias]
-    ci = commit -am
-    co = checkout
-    br = branch
     st = status
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    unstage = reset -q HEAD --
+    discard = checkout --
+    uncommit = reset --mixed HEAD~
+    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s %Cblue(%cN, %cr) %Cred%d' --date-order
