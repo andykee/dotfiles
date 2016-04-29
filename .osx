@@ -6,6 +6,9 @@ alias vim="/usr/local/bin/vim"
 # Make sure Homebrew packages take precedence over system packages
 export PATH=/usr/local/bin:$PATH
 
+# Configure GEOS_DIR for matplotlib basemaps
+export GEOS_DIR=/usr/local/lib/basemap
+
 # Configure pip
 export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
 gpip(){
