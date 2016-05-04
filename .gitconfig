@@ -10,10 +10,14 @@
 
 [alias]
     st = status
+    ss = status -s
+    co = checkout
     branches = branch -a
     tags = tag
     stashes = stash list
     unstage = reset -q HEAD --
     discard = checkout --
     uncommit = reset --mixed HEAD~
-    graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s %Cblue(%cN, %cr) %Cred%d' --date-order
+    graph = log --graph -10 --branches --remotes --tags  --format=format:'%C(yellow)%h %Creset• %<(75,trunc)%s %Cblue(%cN, %cr) %Cred%d' --date-order
+    ls = log --pretty=format:'%C(yellow)%h %Creset• %<(60,trunc)%s %Cblue [%cn - %cr]' --decorate
+    la = "!git config -l | grep alias | cut -c 7-"
