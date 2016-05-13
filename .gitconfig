@@ -8,6 +8,9 @@
 [core]
     editor = vim
 
+[push]
+    default = simple
+
 [alias]
     st = status
     ss = status -s
