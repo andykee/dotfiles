@@ -6,10 +6,12 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # Shortcuts
+alias db="cd ~/Dropbox"
 alias dev="cd ~/dev"
 alias dl="cd ~/downloads"
 alias w="cd ~/work"
 
+alias jo="vi ~/Dropbox/journal/$(date +%Y-%m-%d).txt"
 alias c="clear"
 
 # Detect which 'ls' flavor is in use
