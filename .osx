@@ -11,8 +11,8 @@ export GEOS_DIR=/usr/local/lib/basemap
 
 # Configure pip
 export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
-gpip(){
-	PIP_REQUIRE_VIRTUALENV="" pip "$@"
+gpip2(){
+	PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 } # gpip is a new command which will install things globally
 
 gpip3(){
