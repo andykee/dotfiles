@@ -6,25 +6,20 @@ alias .....="cd ../../../.."
 alias -- -="cd -"
 
 # Shortcuts
+alias db="cd ~/Dropbox"
 alias dev="cd ~/dev"
 alias dl="cd ~/downloads"
 alias w="cd ~/work"
 
+alias jo="vi ~/Dropbox/journal/$(date +%Y-%m-%d).txt"
 alias c="clear"
 
-# Detect which 'ls' flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU 'ls'
-	colorflag="--color"
-else # OSX 'ls'
-	colorflag="-G"
-fi
-
 # List files colorized in long format
-alias ll="ls -l ${colorflag}"
+alias ll="gls -lh --group-directories-first --color=auto"
 
 # List all files colorized in long format
-alias la="ls -la ${colorflag}"
+alias la="gls -lah --group-directories-first --color=auto"
 
 # Always use color output for 'ls'
-alias ls="command ls ${colorflag}"
+alias ls="command gls --color=auto"
 

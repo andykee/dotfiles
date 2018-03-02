@@ -15,6 +15,9 @@ brew upgrade --all
 # Install vim
 brew install vim
 
+# Install coreutils
+brew install coreutils
+
 # Install python 2 and 3
 brew install python
 brew install python3
