@@ -22,8 +22,8 @@ gpip3(){
 # Configure virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Dev
-source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
 
 # Virtualenv workon cd into project directory
 CMD='proj_name=$(basename $VIRTUAL_ENV); cd $PROJECT_HOME/$proj_name'
