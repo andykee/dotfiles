@@ -28,4 +28,4 @@ esac
 #export LANG=en_US
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/gcc-4.8.2/lib64
 
-
+alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab'
