@@ -1,13 +1,3 @@
-# Compiled Python files
-*.pyc
-__pycache__/
-
-# MATLAB Autosave files
-*.m~
-
-# Compiled MEX binaries
-*.mex*
-
 # Folder view configuration files
 .DS_Store
 Desktop.ini
@@ -16,3 +6,4 @@ Desktop.ini
 ._*
 Thumbs.db
 
+.local
