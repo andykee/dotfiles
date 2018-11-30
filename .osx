@@ -22,6 +22,7 @@ gpip3(){
 # Configure virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Dev
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Virtualenv workon cd into project directory
@@ -31,3 +32,6 @@ grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
 
 # mkvirtualenv3 makes python3 virtualenv
 alias mkvirtualenv3="mkvirtualenv -p python3"
+
+# byobu setup
+export BYOBU_PREFIX=/usr/local

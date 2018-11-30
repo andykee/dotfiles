@@ -73,6 +73,8 @@ let g:airline#extensions#whitespace#enable=0    " disable whitespace warnings
 let g:airline#extensions#tabline#enabled=1      " enable enhanced tabline
 let g:airline#extensions#tabline#tab_min_count=2 " require 2 tabs to be open before showing tabline
 let g:airline#extensions#tabline#buffer_min_count=2 " ditto buffers
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#hunks#enabled=0        " show git branch instead of change count 
 set timeoutlen=50
 set laststatus=2
 set noshowmode          " hide bottom status line
