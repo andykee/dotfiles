@@ -76,11 +76,11 @@ function! airline#highlighter#get_highlight(group, ...)
     let fg = s:get_syn(a:group, 'fg')
     let bg = s:get_syn(a:group, 'bg')
     let bold = synIDattr(synIDtrans(hlID(a:group)), 'bold')
-    let opts = a:000
-    if bold
-      let opts = ['bold']
+    if reverse
+      let res = s:get_array(bg, fg, bold ? ['bold'] : a:000)
+    else
+      let res = s:get_array(fg, bg, bold ? ['bold'] : a:000)
     endif
-    let res = reverse ? s:get_array(bg, fg, opts) : s:get_array(fg, bg, opts)
   endif
   let s:hl_groups[a:group] = res
   return res
@@ -121,11 +121,7 @@ function! airline#highlighter#exec(group, colors)
   endif
   let colors = s:CheckDefined(colors)
   if old_hi != new_hi || !s:hl_group_exists(a:group)
-    let cmd = printf('hi %s %s %s %s %s %s %s %s',
-        \ a:group, s:Get(colors, 0, 'guifg='), s:Get(colors, 1, 'guibg='),
-        \ s:Get(colors, 2, 'ctermfg='), s:Get(colors, 3, 'ctermbg='),
-        \ s:Get(colors, 4, 'gui='), s:Get(colors, 4, 'cterm='),
-        \ s:Get(colors, 4, 'term='))
+    let cmd = printf('hi %s%s', a:group, s:GetHiCmd(colors))
     exe cmd
     if has_key(s:hl_groups, a:group)
       let s:hl_groups[a:group] = colors
@@ -165,13 +161,29 @@ function! s:CheckDefined(colors)
   return a:colors[0:1] + [fg, bg] + [a:colors[4]]
 endfunction
 
-function! s:Get(dict, key, prefix)
-  let res=get(a:dict, a:key, '')
-  if res is ''
-    return ''
-  else
-    return a:prefix. res
-  endif
+function! s:GetHiCmd(list)
+  " a:list needs to have 5 items!
+  let res = ''
+  let i = -1
+  while i < 4
+    let i += 1
+    let item = get(a:list, i, '')
+    if item is ''
+      continue
+    endif
+    if i == 0
+      let res .= ' guifg='.item
+    elseif i == 1
+      let res .= ' guibg='.item
+    elseif i == 2
+      let res .= ' ctermfg='.item
+    elseif i == 3
+      let res .= ' ctermbg='.item
+    elseif i == 4
+      let res .= printf(' gui=%s cterm=%s term=%s', item, item, item)
+    endif
+  endwhile
+  return res
 endfunction
 
 function! s:exec_separator(dict, from, to, inverse, suffix)
@@ -259,6 +271,11 @@ function! airline#highlighter#highlight(modes, ...)
           if bnr > 0 && index(buffers_in_tabpage, bnr) == -1
             continue
           endif
+        elseif (name =~# '_to_') || (name[0:10] is# 'airline_tab' && !empty(suffix))
+          " group will be redefined below at exec_separator
+          " or is not needed for tabline with '_inactive' suffix
+          " since active flag is 1 for builder)
+          continue
         endif
         if s:group_not_done(airline_grouplist, name.suffix)
           call airline#highlighter#exec(name.suffix, mode_colors)

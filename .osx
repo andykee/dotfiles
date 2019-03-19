@@ -1,37 +1,32 @@
 # OSX-specific aliases
-alias im="open -a Preview"
+#alias im="open -a Preview"
 alias vi="/usr/local/bin/vim"
 alias vim="/usr/local/bin/vim"
 
 # Make sure Homebrew packages take precedence over system packages
 export PATH=/usr/local/bin:$PATH
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# anaconda aliases
+alias mkcondaenv="conda create --name"
+alias lscondaenv="conda env list"
+alias workon="conda activate"
+alias deactivate="conda deactivate"
+
 # Configure GEOS_DIR for matplotlib basemaps
-export GEOS_DIR=/usr/local/lib/basemap
+#export GEOS_DIR=/usr/local/lib/basemap
 
-# Configure pip
-export PIP_REQUIRE_VIRTUALENV=true	   # Restrict pip usage to within virtualenvs
-gpip2(){
-	PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
-} # gpip is a new command which will install things globally
-
-gpip3(){
-	PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-} # gpip is a new command which will install things globally
-
-# Configure virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Dev
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Virtualenv workon cd into project directory
-CMD='proj_name=$(basename $VIRTUAL_ENV); cd $PROJECT_HOME/$proj_name'
-FILE=$WORKON_HOME/postactivate
-grep -q -F "$CMD" "$FILE" || echo "$CMD" >> "$FILE"
-
-# mkvirtualenv3 makes python3 virtualenv
-alias mkvirtualenv3="mkvirtualenv -p python3"
-
-# byobu setup
-export BYOBU_PREFIX=/usr/local

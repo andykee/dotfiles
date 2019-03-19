@@ -19,9 +19,7 @@ endfunction
 
 function! airline#add_statusline_funcref(function)
   if index(g:airline_statusline_funcrefs, a:function) >= 0
-    echohl WarningMsg
-    echo 'The airline statusline funcref '.string(a:function).' has already been added.'
-    echohl NONE
+    call airline#util#warning(printf('The airline statusline funcref "%s" has already been added.', string(a:function)))
     return
   endif
   call add(g:airline_statusline_funcrefs, a:function)
@@ -58,20 +56,41 @@ function! airline#load_theme()
 endfunction
 
 " Load an airline theme
-function! airline#switch_theme(name)
+function! airline#switch_theme(name, ...)
+  let silent = get(a:000, '0', 0)
+  " get all available themes
+  let themes = airline#util#themes('')
+  let err = 0
   try
-    let palette = g:airline#themes#{a:name}#palette "also lazy loads the theme
-    let g:airline_theme = a:name
-  catch
-    echohl WarningMsg | echo 'The specified theme cannot be found.' | echohl NONE
+    if index(themes, a:name) == -1
+      " Theme not available
+      if !silent
+        call airline#util#warning(printf('The specified theme "%s" cannot be found.', a:name))
+      endif
+      throw "not-found"
+      let err = 1
+    else
+      exe "ru autoload/airline/themes/". a:name. ".vim"
+      let g:airline_theme = a:name
+    endif
+  catch /^Vim/
+    " catch only Vim errors, not "not-found"
+    call airline#util#warning(printf('There is an error in theme "%s".', a:name))
+    if &vbs
+      call airline#util#warning(v:exception)
+    endif
+    let err = 1
+  endtry
+
+  if err
     if exists('g:airline_theme')
       return
     else
       let g:airline_theme = 'dark'
     endif
-  endtry
+  endif
 
-  let w:airline_lastmode = ''
+  unlet! w:airline_lastmode
   call airline#load_theme()
 
   call airline#util#doautocmd('AirlineAfterTheme')
@@ -84,17 +103,15 @@ endfunction
 function! airline#switch_matching_theme()
   if exists('g:colors_name')
     let existing = g:airline_theme
-    let theme = substitute(tolower(g:colors_name), '-', '_', 'g')
+    let theme = tr(tolower(g:colors_name), '-', '_')
     try
-      let palette = g:airline#themes#{theme}#palette
-      call airline#switch_theme(theme)
+      call airline#switch_theme(theme, 1)
       return 1
     catch
       for map in items(g:airline_theme_map)
         if match(g:colors_name, map[0]) > -1
           try
-            let palette = g:airline#themes#{map[1]}#palette
-            call airline#switch_theme(map[1])
+            call airline#switch_theme(map[1], 1)
           catch
             call airline#switch_theme(existing)
           endtry
@@ -163,7 +180,8 @@ function! s:invoke_funcrefs(context, funcrefs)
   if err == 1
     let a:context.line = builder.build()
     let s:contexts[a:context.winnr] = a:context
-    call setwinvar(a:context.winnr, '&statusline', '%!airline#statusline('.a:context.winnr.')')
+    let option = get(g:, 'airline_statusline_ontop', 0) ? '&tabline' : '&statusline'
+    call setwinvar(a:context.winnr, option, '%!airline#statusline('.a:context.winnr.')')
   endif
 endfunction
 
@@ -173,12 +191,11 @@ function! airline#statusline(winnr)
   if has_key(s:contexts, a:winnr)
     return '%{airline#check_mode('.a:winnr.')}'.s:contexts[a:winnr].line
   endif
-
   " in rare circumstances this happens...see #276
   return ''
 endfunction
 
-" Check if mode as changed
+" Check if mode has changed
 function! airline#check_mode(winnr)
   if !has_key(s:contexts, a:winnr)
     return ''
@@ -247,4 +264,18 @@ function! airline#check_mode(winnr)
   endif
 
   return ''
+endfunction
+
+function! airline#update_tabline()
+  if get(g:, 'airline_statusline_ontop', 0)
+    call airline#extensions#tabline#redraw()
+  endif
+endfunction
+
+function! airline#mode_changed()
+  " airline#visual_active
+  " Boolean: for when to get visual wordcount
+  " needed for the wordcount extension
+  let g:airline#visual_active = (mode() =~? '[vs]')
+  call airline#update_tabline()
 endfunction

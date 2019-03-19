@@ -3,7 +3,7 @@
 # * ~/.bash_prompt
 # * ~/.extra is used for machine-specific settings
 # * ~/.path is used to extend '$PATH'.
-for file in ~/.{aliases,bash_prompt,extra,path}; do
+for file in ~/.{aliases,bash_prompt,extra,path,git-completion.bash}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
