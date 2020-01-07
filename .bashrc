@@ -6,6 +6,11 @@ alias ....="cd ../../.."
 alias db="cd ~/Dropbox"
 alias dev="cd ~/dev"
 alias c="clear"
+    
+alias mkcondaenv="conda create --name"
+alias lscondaenv="conda env list"
+alias workon="conda activate"
+alias deactivate="conda deactivate"
 
 source ~/.bash_prompt
 source ~/.git-completion.bash
@@ -18,12 +23,7 @@ if [[ "$(uname -s)" =~ "Darwin" ]]; then
     alias ls="gls --color=auto"
 
     alias vi="/usr/local/bin/vim"
-    alias vim="/usr/local/bin/vim"
-    
-    alias mkcondaenv="conda create --name"
-    alias lscondaenv="conda env list"
-    alias workon="conda activate"
-    alias deactivate="conda deactivate"
+    alias vim="/usr/local/bin/vim"    
 
     # Make sure Homebrew packages take precedence over system packages
     export PATH=/usr/local/bin:$PATH
