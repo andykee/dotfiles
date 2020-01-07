@@ -4,7 +4,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "dotfiles.sh" \
-		--exclude "README.md" --exclude "extras" --exclude "TODO.md" -avh --no-perms . ~;
+		--exclude "README.md" --exclude "extras" --exclude ".gitignore" -avh --no-perms . ~;
 	source ~/.bashrc;
 }
 
