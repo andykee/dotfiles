@@ -1,0 +1,8 @@
+conda_prompt() {
+    conda_env="${CONDA_DEFAULT_ENV}";
+    if [ "${conda_env}" = "base" ]; then
+        :
+    else
+        echo "(${conda_env}) ";
+    fi
+}

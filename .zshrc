@@ -12,10 +12,11 @@ alias lscondaenv="conda env list"
 alias workon="conda activate"
 alias deactivate="conda deactivate"
 
-source ~/.bash_prompt
 source ~/.gitprompt
 source ~/.condaprompt
-source ~/.git-completion-bash
+zstyle ':completion:*:*:git:*' script ~/.git-completion-bash
+#source ~/.git-completion-zsh
+
 if [ -e ~/.extra ]; then
     source ~/.extra
 fi
@@ -58,12 +59,17 @@ elif [[ "$(uname -s)" =~ "Linux" ]]; then
 
 fi
 
+setopt PROMPT_SUBST ; PS1='$(conda_prompt)[%n@%m %~]$(__git_ps1 " (%s)")%# '
+
+#PROMPT='[$FG[228]%~%{$reset_color%}]'
+#PROMPT+=' $(__git_ps1)'
+#PROMPT+=' %(?.$FG[154].$FG[009])€%{$reset_color%} '
 
 # Set the terminal title to the current working directory.
-PS1="\\[\033]0;\w\007\]";
+###PS1="\\[\033]0;\w\007\]";
 
 # This is the actual displayed prompt
-PS1+="\$(conda_prompt)[\u@\h \w]\$(__git_ps1)\$ ";
+###PS1+="\$(conda_prompt)[\u@\h \w]\$(git_prompt)\$ ";
 #PS1+="\u"; 	# username
 #PS1+="@";
 #PS1+="\h";	# host
@@ -73,4 +79,4 @@ PS1+="\$(conda_prompt)[\u@\h \w]\$(__git_ps1)\$ ";
 #PS1+="\$(git_prompt)"; # Git repository details
 #PS1+="\$";
 #PS1+=" ";         
-export PS1
+###export PS1
