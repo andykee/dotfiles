@@ -26,6 +26,7 @@ if [[ "$(uname -s)" =~ "Darwin" ]]; then
     alias ll="gls -lh --group-directories-first --color=auto"
     alias la="gls -lah --group-directories-first --color=auto"
     alias ls="gls --color=auto"
+    alias lt="gls -ltr --color=auto"
 
     alias vi="/usr/local/bin/vim"
     alias vim="/usr/local/bin/vim"    
@@ -52,6 +53,7 @@ elif [[ "$(uname -s)" =~ "Linux" ]]; then
     alias ll="ls -lh --group-directories-first --color=auto"
     alias la="ls -lah --group-directories-first --color=auto"
     alias ls="ls --color=auto"
+    alias lt="'t -ltr --color=auto"
 
     # Remap caps lock to escape
     xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
