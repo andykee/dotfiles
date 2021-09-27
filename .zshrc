@@ -5,7 +5,7 @@ alias ....="cd ../../.."
 alias db="cd ~/Dropbox"
 alias dev="cd ~/dev"
 alias c="clear"
-alias bean="cd ~/Dropbox/beancount"
+alias bean="cd ~/Dropbox/ref/financial/beancount"
 
 alias mkcondaenv="conda create --name"
 alias lscondaenv="conda env list"
