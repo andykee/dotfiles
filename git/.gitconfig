@@ -1,6 +1,5 @@
 [user]
-	name = Andy Kee
-    email = andykee@gmail.com
+    name = Andy Kee
 
 [color]
     ui = auto
@@ -21,6 +20,7 @@
     unstage = reset -q HEAD --
     discard = checkout --
     uncommit = reset --mixed HEAD~
+    remotes = remote -v
     graph = log --graph -10 --branches --remotes --tags  --format=format:'%C(yellow)%h %Creset• %<(75,trunc)%s %Cblue(%cN, %cr) %Cred%d' --date-order
     ls = log --pretty=format:'%C(yellow)%h %Creset• %<(60,trunc)%s %Cblue [%cn - %cr]' --decorate
     la = "!git config -l | grep alias | cut -c 7-"

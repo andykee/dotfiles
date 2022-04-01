@@ -73,6 +73,12 @@ set timeoutlen=50
 set laststatus=2
 set noshowmode          " hide bottom status line
 
+" fix missing column number symbol issue
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = "\u33c7"
+
 " NERDTREE
 "
 " " Exit Vim if NERDTree is the only window remaining in the only tab.

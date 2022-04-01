@@ -1,0 +1,30 @@
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Shortcuts
+alias db="cd ~/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dev="cd ~/dev"
+alias proj="cd ~/proj"
+alias c="clear"
+alias h="history"
+
+alias bean="cd ~/Dropbox/documents/financial/beancount"
+alias jo="vi '+ normal G $' ~/Dropbox/Library/Journal/$(date +%Y).txt"
+
+# Explicitly use GNU ls on MacOS
+if [[ "$(uname -s)" =~ "Darwin" ]]; then
+    alias ls="gls --color"
+else
+    alias ls="ls --color"
+fi
+
+alias ll="ls -lh --group-directories-first --color"
+alias la="ls -lah --group-directories-first --color"
+
+# Always enable colored `grep` output
+alias grep='grep --color=auto '
+
