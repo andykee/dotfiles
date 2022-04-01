@@ -1,6 +1,11 @@
 # Other dotfiles
 if [ -e ~/.aliases ]; then source ~/.aliases; fi
-if [ -e ~/.gitprompt ]; then source ~/.gitprompt; fi
+if [ -e ~/.gitprompt ]; then 
+    source ~/.gitprompt; 
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWUNTRACKEDFILES=true
+fi
+
 if [ -e ~/.localrc ]; then source ~/.localrc; fi
 
 # Set the terminal title to the cwd
