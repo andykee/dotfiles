@@ -21,7 +21,7 @@ set softtabstop=4	" 4 spaces per tab when editing
 set expandtab		" convert tabs to spaces
 set shiftwidth=4 	" 4 spaces per indentation level
 filetype indent on	" filetype-specific indentation rules
-"set autoindent 	" copy indentation level from previous line
+set autoindent 	    " copy indentation level from previous line
 
 " UI CONFIG
 set number          " show line numbers
@@ -35,6 +35,8 @@ set wildmenu        " show tab completion options
 " SEARCH
 set incsearch       " search as characters are entered
 set hlsearch        " highlight matches
+nnoremap n nzzzv    " center search jumps
+nnoremap N Nzzzv    " center search jumps
 
 " NAVIGATION
 set mouse=a         " enable mouse in all modes
