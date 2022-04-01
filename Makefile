@@ -37,7 +37,7 @@ git:
 
 local:
 	if [ -e $(ROOT_DIR)/local/.local-$(HOSTNAME) ]; then \
-		$(call link, $(ROOT_DIR)/local/.local-$(HOSTNAME), $(HOMEDIR)/.local); \
+		$(call link, $(ROOT_DIR)/local/.local-$(HOSTNAME), $(HOMEDIR)/.localrc); \
 	fi
 
 shell:
@@ -60,7 +60,7 @@ clean:
 	$(call unlink, $(HOMEDIR)/.condaprompt)
 	$(call unlink, $(HOMEDIR)/.gitconfig)
 	$(call unlink, $(HOMEDIR)/.gitprompt)
-	$(call unlink, $(HOMEDIR)/.local)
+	$(call unlink, $(HOMEDIR)/.localrc)
 	$(call unlink, $(HOMEDIR)/.hushlogin)
 	$(call unlink, $(HOMEDIR)/.vim)
 	$(call unlink, $(HOMEDIR)/.vimrc)

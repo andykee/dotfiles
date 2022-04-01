@@ -1,7 +1,7 @@
 # Other dotfiles
 if [ -e ~/.aliases ]; then source ~/.aliases; fi
 if [ -e ~/.gitprompt ]; then source ~/.gitprompt; fi
-if [ -e ~/.local ]; then source ~/.local; fi
+if [ -e ~/.localrc ]; then source ~/.localrc; fi
 
 # Prompt
 if [ -v CONDA_EXE ]; then
