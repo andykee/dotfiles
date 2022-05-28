@@ -18,10 +18,10 @@ define unlink
 	fi
 endef
 
-.SILENT: all bash clean conda git local shell vim zsh
-.PHONY: bash conda git local shell vim zsh
+.SILENT: all bash clean conda git local shell tmux vim zsh
+.PHONY: bash conda git local shell tmux vim zsh
 
-all: bash conda git local shell vim zsh
+all: bash conda git local shell tmux vim zsh
 
 bash:
 	$(call link, $(ROOT_DIR)/bash/.bash_profile, $(HOMEDIR)/.bash_profile)
@@ -44,6 +44,9 @@ shell:
 	$(call link, $(ROOT_DIR)/shell/.aliases, $(HOMEDIR)/.aliases)
 	$(call link, $(ROOT_DIR)/shell/.hushlogin, $(HOMEDIR)/.hushlogin)
 
+tmux:
+	$(call link, $(ROOT_DIR)/tmux/.tmux.conf, $(HOMEDIR)/.tmux.conf)
+
 vim:
 	$(call link, $(ROOT_DIR)/vim/.vim, $(HOMEDIR)/.vim)
 	$(call link, $(ROOT_DIR)/vim/.vimrc, $(HOMEDIR)/.vimrc)
@@ -62,6 +65,7 @@ clean:
 	$(call unlink, $(HOMEDIR)/.gitprompt)
 	$(call unlink, $(HOMEDIR)/.localrc)
 	$(call unlink, $(HOMEDIR)/.hushlogin)
+	$(call unlink, $(HOMEDIR)/.tmux.conf
 	$(call unlink, $(HOMEDIR)/.vim)
 	$(call unlink, $(HOMEDIR)/.vimrc)
 	$(call unlink, $(HOMEDIR)/.zprofile)
