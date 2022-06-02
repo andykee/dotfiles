@@ -1,3 +1,7 @@
+if [ -f ~/.bashrc ]
+    source ~/.bashrc
+fi
+
 # Homebrew
 if [[ -f /opt/homebrew/bin/brew ]]; then
     # Homebrew exists at /opt/homebrew for arm64 macos
