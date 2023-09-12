@@ -60,6 +60,7 @@ vim:
 
 zsh:
 	$(call link, $(ROOT_DIR)/zsh/.zprofile, $(HOMEDIR)/.zprofile)
+	$(call link, $(ROOT_DIR)/zsh/.zshenv, $(HOMEDIR)/.zshenv)
 	$(call link, $(ROOT_DIR)/zsh/.zshrc, $(HOMEDIR)/.zshrc)
 
 clean:
@@ -77,4 +78,5 @@ clean:
 	$(call unlink, $(HOMEDIR)/.vim)
 	$(call unlink, $(HOMEDIR)/.vimrc)
 	$(call unlink, $(HOMEDIR)/.zprofile)
+	$(call unlink, $(HOMEDIR)/.zshenv)
 	$(call unlink, $(HOMEDIR)/.zshrc)
