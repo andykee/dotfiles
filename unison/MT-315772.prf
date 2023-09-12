@@ -1,0 +1,11 @@
+root = /Users/akee
+root = ssh://akee@MT-315772.jpl.nasa.gov//Users/akee
+
+path = Sync
+
+auto=true
+batch=true
+confirmbigdeletes=true
+prefer=newer
+silent=true
+times=true
