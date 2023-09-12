@@ -1,4 +1,6 @@
 export PATH="/home/akee/sys/pycharm-community-2019.2/bin:$PATH"
+export PATH="/home/akee/sys/nb:$PATH"
+export PATH="/home/akee/sys/unison/bin:$PATH"
 alias vi=/usr/bin/vim
 
 # Anaconda setup
