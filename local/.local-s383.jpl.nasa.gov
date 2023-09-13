@@ -1,0 +1,53 @@
+alias vi=/usr/bin/vim
+
+if [ $HOSTNAME == ravertc.jpl.nasa.gov ]; then
+    # CompactAO ravertc config
+    export CUDADIR=/usr/local/cuda
+    export OPENBLASDIR=/usr/lib/x86_64-linux-gnu
+    export CONDA_ROOT=/opt/anaconda3
+    export MKLROOT=$CONDA_ROOT
+    export MAGMADIR=/usr/local/magma
+    export MILK_ROOT=/data/setup/soft/milk
+    export MILK_INSTALLDIR=/usr/local/milk
+    export MILK_SHM_DIR=/milk/shm
+    export PATH=$PATH:$CUDADIR/bin:$MILK_INSTALLDIR/bin
+    export LD_LIBRARY_PATH=/usr/local/magma/lib:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/magma/lib/pkgconfig
+
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/opt/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+
+else
+    # Normal s383 machine config    
+    export PATH="/home/akee/sys/pycharm-community-2019.2/bin:$PATH"
+    export PATH="/home/akee/sys/nb:$PATH"
+    export PATH="/home/akee/sys/unison/bin:$PATH"
+
+    # Anaconda setup
+    __conda_setup="$('/home/akee/sys/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/akee/sys/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/akee/sys/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/akee/sys/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+
+    # Jupyter
+    #jupyter-notebook --no-browser --notebook-dir=/home/akee/dev/notebooks &
+fi

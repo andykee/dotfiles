@@ -5,7 +5,25 @@ if [ -e ~/.gitprompt ]; then
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
 fi
-if [ -e ~/.localrc ]; then source ~/.localrc; fi
+
+# localrc - note this block is only executed if .zshrc is symlinked
+# to somewhere outside of $HOME
+ZSHRC_PATH=$(realpath "$0")
+ZSH_DIR=$(dirname $ZSHRC_PATH)
+if [ $HOME != $ZSH_DIR ]; then
+    DOTFILES_PATH=$(dirname $ZSH_DIR)
+
+    if [ -e $HOME/.localrc ]; then
+        rm $HOME/.localrc;
+    fi
+
+    if [ -e $DOTFILES_PATH/local/.local-$HOSTNAME ]; then
+        ln -s $DOTFILES_PATH/local/.local-$HOSTNAME $HOME/.localrc;
+        source .localrc
+    fi
+
+fi
+
 
 # Prompt
 if [ -v CONDA_EXE ]; then

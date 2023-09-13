@@ -19,8 +19,8 @@ define unlink
 	fi
 endef
 
-.SILENT: all bash clean conda git local shell tmux unison vim zsh
-.PHONY: bash conda git local shell tmux unison vim zsh
+.SILENT: all bash clean conda git shell tmux unison vim zsh
+.PHONY: bash conda git shell tmux unison vim zsh
 
 all: bash conda git local shell tmux unison vim zsh
 
@@ -35,11 +35,6 @@ conda:
 git: 
 	$(call link, $(ROOT_DIR)/git/.gitconfig, $(HOMEDIR)/.gitconfig)
 	$(call link, $(ROOT_DIR)/git/.gitprompt, $(HOMEDIR)/.gitprompt)
-
-local:
-	if [ -e $(ROOT_DIR)/local/.local-$(HOSTNAME) ]; then \
-		$(call link, $(ROOT_DIR)/local/.local-$(HOSTNAME), $(HOMEDIR)/.localrc); \
-	fi
 
 shell:
 	$(call link, $(ROOT_DIR)/shell/.aliases, $(HOMEDIR)/.aliases)
