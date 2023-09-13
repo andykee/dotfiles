@@ -8,7 +8,7 @@ fi
 
 # localrc - note this block is only executed if .zshrc is symlinked
 # to somewhere outside of $HOME
-ZSHRC_PATH=$(realpath "$0")
+ZSHRC_PATH=$(readlink ${(%):-%N})
 ZSH_DIR=$(dirname $ZSHRC_PATH)
 if [ $HOME != $ZSH_DIR ]; then
     DOTFILES_PATH=$(dirname $ZSH_DIR)
@@ -16,9 +16,8 @@ if [ $HOME != $ZSH_DIR ]; then
     if [ -e $HOME/.localrc ]; then
         rm $HOME/.localrc;
     fi
-
-    if [ -e $DOTFILES_PATH/local/.local-$HOSTNAME ]; then
-        ln -s $DOTFILES_PATH/local/.local-$HOSTNAME $HOME/.localrc;
+    if [ -e $DOTFILES_PATH/local/.local-$HOST ]; then
+        ln -s $DOTFILES_PATH/local/.local-$HOST $HOME/.localrc;
         source .localrc
     fi
 
